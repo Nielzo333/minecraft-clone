@@ -7,8 +7,8 @@ window.fps_counter.enabled = True
 window.exit_button.visible = True
 
 blocks = [
-    load_texture('assets/grass.png'),
-    load_texture('assets/grass.png'),
+    load_texture('/grass.png'),
+    load_texture('/grass.png'),
     ]
 
 block_id = 1
@@ -24,14 +24,14 @@ def input(key):
 sky = Entity(
     parent=scene,
     model='sphere',
-    texture=load_texture('assets/sky.jpg'),
+    texture=load_texture('/sky.jpg'),
     scale=500,
     double_sided=True
 )
 
 hand = Entity(
     model='blade',
-    texture='/assets/block.obj',
+    texture='/block.obj',
     rotation=(30, -40),
     position=(0.5, -0,6),
     parent=camera.ui,
@@ -45,11 +45,11 @@ def update():
         hand.position = Vec2(0.6, -0.6)
 
 class Voxel(Button):
-    def __init__(self, position=(0, 0, 0), texture='assets/grass.png'):
+    def __init__(self, position=(0, 0, 0), texture='/grass.png'):
         super().__init__(
             parent=scene,
             position=position,
-            model='assets/block',
+            model='/block',
             origin_y=0.5,
             texture=texture,
             color=color.color(0, 0, random.uniform(0.9, 1.0)),
